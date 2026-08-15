@@ -1,0 +1,6 @@
+{
+  "name": "Gestione Casa Activation Service",
+  "description": "Backend service for licensing and activation of the Gestione Casa ecosystem",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

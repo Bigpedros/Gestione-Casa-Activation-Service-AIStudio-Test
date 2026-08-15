@@ -1,0 +1,11 @@
+node_modules/
+build/
+dist/
+vendor/*.tgz
+!vendor/gestione-casa-shared-sdk-0.5.1.tgz
+coverage/
+.DS_Store
+*.log
+.env*
+!.env.example
+bun.lock

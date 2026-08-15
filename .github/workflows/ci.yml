@@ -1,0 +1,45 @@
+name: CI - Gestione Casa Activation Service Foundation
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    env:
+      NODE_ENV: test
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+
+      - name: Verify Gestione Casa Shared SDK 0.5.1
+        run: |
+          echo "9e4fee87e6309ee1753aed31b7524dfb573b4786c55c75b5fd76c6423d2d0529  vendor/gestione-casa-shared-sdk-0.5.1.tgz" | sha256sum -c -
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run Typecheck
+        run: npm run typecheck
+
+      - name: Run Lint
+        run: npm run lint
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Run Tests
+        run: npm test

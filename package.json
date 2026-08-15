@@ -1,0 +1,38 @@
+{
+  "name": "@gestione-casa/activation-service",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Backend server-side per attivazione e validazione licenze dell'ecosistema Gestione Casa.",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "lint": "tsc --noEmit",
+    "test": "node --test tests/*.test.mjs",
+    "db:migrate": "tsx src/database/migrate-cli.ts"
+  },
+  "dependencies": {
+    "@gestione-casa/shared-sdk": "file:vendor/gestione-casa-shared-sdk-0.5.1.tgz",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "pg": "^8.23.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^22.14.0",
+    "@types/pg": "^8.21.0",
+    "@types/supertest": "^6.0.2",
+    "supertest": "^7.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "~5.8.2"
+  }
+}
